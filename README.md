@@ -22,4 +22,4 @@ Caso esteja utilizando windows troque o python3 por python.
 	
 ## Um pouco sobre a aplicação.
 A aplicação foi feita utilizando Python, Django, Django-Rest, Pandas e unittest (TDD).
-Ela é bem simples e todo o código desenvolvido se encontra no app validator.
+Ela é bem simples e todo o código desenvolvido se encontra no app validator. 
