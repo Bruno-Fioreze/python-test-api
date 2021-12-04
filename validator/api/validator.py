@@ -9,17 +9,19 @@ from validator.serializers.serializers import CPFSerializer
 
 class ValidatorCPF(APIView):
     def get(self, request, cpf):
-        
         # Removi, pois alguns dos registros no arquivo não são válidos e estão retornando False.
         #doc_br_cpf = CPF()
         #doc_br_cpf.validate("000.000.000-99")
-        if  len(cpf)  != 14:
-            return JsonResponse({"error": "Verify length CPF"}, status=Status.HTTP_422_UNPROCESSABLE_ENTITY)
-
+        cpf = ValidatorUtirls.remove_special_characters(cpf)
+        if  len(cpf)  != 11 :
+            return JsonResponse({"error": "Verify  CPF"}, status=Status.HTTP_422_UNPROCESSABLE_ENTITY)
+      
+        cpf = ValidatorUtirls.format_cpf(cpf) 
         status_cpf = {
             False: {"status": "FREE"},
             True: {"status": "BLOCK"}
         }
+        
         free_or_block = ValidatorUtirls.verify_status_cpf(cpf) 
         #free_or_block = ValidatorUtirls.verify_status_cpf_with_pandas(cpf) 
         #data =  {"status": "BLOCK"} if free_or_block else {"status": "FREE"}

@@ -49,6 +49,16 @@ class TestUtilsValidator(unittest.TestCase):
         data = ValidatorUtirls.verify_status_cpf(cpf)
         self.assertFalse(data)
 
+    def test_method_format_cpf_return_length_14(self):
+        cpf = "00000000099"
+        data = ValidatorUtirls.format_cpf(cpf)
+        self.assertEqual(len(data), 14)
+    
+    def test_method_remove_special_characters_return_only_numbers(self):
+        cpf = "000.000.000-99"
+        data = ValidatorUtirls.remove_special_characters(cpf)
+        self.assertTrue(data.isdigit())
+    
     def test_exist_archive(self):
         self.assertTrue(os.path.isfile("blacklist.txt"))
     

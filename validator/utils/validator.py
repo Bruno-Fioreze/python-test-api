@@ -33,3 +33,31 @@ class ValidatorUtirls():
         free_or_block = cpf in df.values
         return free_or_block
    
+    @staticmethod
+    def format_cpf(cpf: str) -> str:
+        """[Função responsável por formatar o cpf]
+
+        Args:
+            cpf (str): [String com 11 caracteres decimais.]
+
+        Returns:
+            str: [Retorna o cpf formatado.]
+        """
+        cpf_formated = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
+        return cpf_formated
+    
+    @staticmethod
+    def remove_special_characters(cpf: str) -> str:
+        """[
+            Função responsável por remover caracteres especiais do cpf.
+        ]
+
+        Args:
+            cpf (str): [String com 11 ou 14 caracteres.]
+
+        Returns:
+            str: [Retorna apenas caracteres númericos.]
+        """
+        numbers_cpf = filter(str.isdigit, cpf)
+        numbers_cpf = "".join(numbers_cpf)
+        return numbers_cpf
