@@ -4,9 +4,9 @@ Caso esteja utilizando windows troque o python3 por python.
 
 - Entre na pasta do projeto.
 - Execute o comando python3 -m venv venv.
-- Execute o comando pip install -r requirements.txt.
 - No caso do linux, ative a venv com source venv/bin/activate.
-- No caso do windows, ative a venv com venv/Scripts/Activate.
+- No caso do windows, ative a venv com venv/Scripts/Activate. 
+- Execute o comando pip install -r requirements.txt.
 - Execute o comando python3 manage.py runserver 127.0.0.1:5000.
 
 ## Exemplos:
