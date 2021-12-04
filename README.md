@@ -1,29 +1,25 @@
-# Teste para desenvolvedores Python
 
-Instruções do teste
-------
+## Passos para executar a aplicação.
+Caso esteja utilizando windows troque o python3 por python.
 
-Desenvolva uma API REST em linguagem Python que seja acessível localmente e verifique se um determinado número de CPF está em uma        *Blacklist*.
+- Entre na pasta do projeto.
+- Execute o comando python3 -m venv venv.
+- Execute o comando pip install -r requirements.txt.
+- No caso do linux, ative a venv com source venv/bin/activate.
+- No caso do windows, ative a venv com venv/Scripts/Activate.
+- Execute o comando python3 manage.py runserver 127.0.0.1:5000.
 
-A aplicação deve:
- 
-1. Ser acessível como um serviço através de uma URL do tipo `http://IP:PORT/<cpf>`, por exemplo:
-`http://127.0.0.1:5000/00000000000`
-
-
-2. Retorne um JSON na consulta onde indique um retorno "FREE" caso o CPF não esteja na Blacklist, ou "BLOCK" caso o CPF pertença a Blacklist, por exemplo:
-`{
-"status": "FREE"
-}
-`
- 
-
-Para este teste você pode usar qualquer framework de sua escolha.
-
-Os CPFs a serem testados estão no arquivo `blacklist.txt`.
-
-
-Como entregar este teste
------
-
-Você deve forkar este projeto em sua própria conta do GitHub e fazer o commit em seu próprio repositório.
+## Exemplos:
+- Entrada
+	> http://127.0.0.1:8000/000.000.000-99/
+- Saída	
+	> {"status": "FREE"}
+	
+## Comandos para executar os testes.
+	> python3 manage.py test validator.tests.TestUtilsValidator
+	> python3 manage.py test validator.tests.TestValidatorAPI
+	> python3 manage.py test validator.tests.TestValidatorAPI.test_call_end_point_return_200_if_cpf_exist_in_archive
+	
+## Um pouco sobre a aplicação.
+A aplicação foi feita utilizando Python, Django, Django-Rest, Pandas e unittest (TDD).
+Ela é bem simples e todo o código desenvolvido se encontra no app validator.
