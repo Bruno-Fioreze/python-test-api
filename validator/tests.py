@@ -49,7 +49,7 @@ class TestUtilsValidator(unittest.TestCase):
         data = ValidatorUtirls.verify_status_cpf(cpf)
         self.assertFalse(data)
 
-    def test_method_format_cpf_return_length_11(self):
+    def test_method_format_cpf_return_length_14(self):
         cpf = "00000000099"
         data = ValidatorUtirls.format_cpf(cpf)
         self.assertEqual(len(data), 14)
